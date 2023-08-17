@@ -1,0 +1,591 @@
+/*color---
+darkblue : #34425C;
+pink: #FFCCC0;
+salmon : #F69883;
+rainbow gradient: linear-gradient(#FFCCC0, #E3AEC7, #FBFFCD, #BAE6FF, #13AAFF);
+radial-gradient: radial-gradient(#252A34, #0B0A0A00);
+*/
+
+/*Reset: toute les proprietes du navigateur à 0*/
+* {
+    all: unset;
+    display: revert;
+}
+
+/*le main */
+main {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(#273042, #34425C);
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    -webkit-animation: blur 0.8s cubic-bezier(0.550, 0.085, 0.680, 0.530) ;
+    animation: blur 0.8s cubic-bezier(0.550, 0.085, 0.680, 0.530);
+}
+
+#sol {
+    position: absolute;
+    width: 100%;
+    top: 75vh;
+    bottom: 0;
+    background: linear-gradient(to left, #FFCCC0, #E3AEC7, #FBFFCD, #BAE6FF, #13AAFF);
+    background-size: 400% 400%;
+    animation: degrade 10s linear infinite;
+}
+
+/*le piano*/
+
+#piano {
+    position: relative;
+    height: 230px;
+    padding: 90px 30px 0 30px;
+    margin-bottom: 2rem;
+    border-radius: 30px;
+    border: 2px solid #0B0A0A;
+    background: #07142C;
+    box-shadow: inset 0 0 7px 2px rgba(0, 0, 0, 0.25), 0 4px 4px 0 rgba(0, 0, 0, 0.35);
+    z-index: 2;
+}
+
+.touches {
+    position: relative;
+}
+
+.blanches {
+    display: flex;
+
+}
+
+.blanche {
+    width: 40px;
+    height: 230px;
+    border-radius: 0 0 5px 5px;
+    background: #fff;
+    border: 1px solid #0B0A0A;
+}
+
+.noires {
+    position: relative;
+    display: flex;
+    z-index: 2;
+}
+
+.noire {
+    width: 24px;
+    height: 120px;
+    border-radius: 0 0 5px 5px;
+    background: #0B0A0A;
+    position: absolute;
+}
+
+/*position des touches noires*/
+
+.noire:nth-child(1){
+    left: 31px;
+}
+.noire:nth-child(2){
+    left: 72px;
+}
+.noire:nth-child(3){
+    left:157px;
+}
+.noire:nth-child(4){
+    left: 199px;
+}
+.noire:nth-child(5){
+    left: 240px;
+}
+.noire:nth-child(6){
+    left: 324px;
+}
+.noire:nth-child(7){
+    left: 366px;
+}
+.noire:nth-child(8){
+    left: 451px;
+}
+.noire:nth-child(9){
+    left: 493px;
+}
+.noire:nth-child(10){
+    left: 536px;
+}
+
+
+/*personnage Camille*/
+.camille {
+    width: 300px;
+    height: auto;
+    position: absolute;
+    top:-260px;
+    left: -50px;
+    animation: vibre 7s ease-in-out infinite both
+}
+
+.se-tait {
+    z-index: 4;
+}
+
+.chante {
+    z-index: 5;
+    opacity: 0;
+}
+
+
+.halo {
+    width: 160px;
+    height: 30px;
+    background: radial-gradient(rgba(255, 255, 255, 0.43), rgba(255, 255, 255, 0.75));
+    animation: spot 15s ease infinite;
+    border-radius: 50%;
+    position: absolute;
+    top:15px;
+    left: 25px;
+}
+
+.spot {
+    width: 160px;
+    height: 74vh;
+    background: linear-gradient( rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0));
+    animation: spot 15s ease infinite;
+    position: absolute;
+    top:-70vh;
+    left: 25px;
+    z-index: 6
+}
+
+/*text*/
+#text{
+    position: relative;
+
+}
+
+#text .titre {
+    position: absolute;
+    top: -58vh;
+    left: 280px;
+    z-index: 1;
+    width: 380px;
+    color: #fff;
+    animation: vibre 7s ease-in-out infinite both
+}
+
+h1 {
+   font-size: 1.8rem;
+}
+
+h1 > span {
+    font-weight: 700;
+}
+
+h1 > span:first-child {
+    color: #6fbaea;
+}
+
+h1>span:nth-child(2){
+    color: #fc917f;
+}
+
+h1>span:last-child{
+    color: #f391c0;
+}
+
+#text .message{
+    width: 75%;
+    height: 200px;
+    position: absolute;
+    top: -42vh;
+    left: 220px;
+    background: radial-gradient(45.49% 50.00% at 50.00% 50%, #070707 0%, rgba(11, 10, 10, 0.00) 100%);
+    border-radius: 40%;
+    z-index: 6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#text .message p {
+    color: #fff;
+    max-width: 45%;
+    font-size: 1.2rem;
+    font-weight: 200;
+    font-style: italic;
+}
+
+.blur {
+    -webkit-animation: text-blur 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) ;
+    animation: text-blur 1s cubic-bezier(0.550, 0.085, 0.680, 0.530);
+}
+
+/* note musique*/
+
+#notes {
+    width: 80vw;
+    height: 75vh;
+    position: absolute;
+    top: 0;
+    left: 20vh;
+    z-index: 1;
+}
+
+#notes img{
+    width: 45px;
+    height: 45px;
+    position: absolute;
+}
+
+#notes img:nth-child(1){
+    top: 25vh;
+    left: 5vw;
+}
+
+#notes img:nth-child(2){
+    top: 15vh;
+    left: 8vw;
+}
+
+#notes img:nth-child(3){
+    top: 25vh;
+    left: 35vw;
+}
+
+#notes img:nth-child(4){
+    top: 23vh;
+    left: 12vw;
+}
+
+#notes img:nth-child(5){
+    top: 15vh;
+    left:65vw;
+}
+
+/*animation*/
+
+.onpress div:hover{
+    -webkit-animation: scale-down 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: scale-down 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    box-shadow: inset 0 0 7px 2px rgba(0, 0, 0, 0.25)
+}
+
+@-webkit-keyframes scale-down {
+    0% {
+        -webkit-transform: scaleY(1);
+        -webkit-transform-origin: 100% 0%;
+    }
+    100% {
+        -webkit-transform: scaleY(0.9);
+        -webkit-transform-origin: 100% 0%;
+    }
+}
+@keyframes scale-down {
+    0% {
+        transform: scaleY(1);
+        transform-origin: 100% 0%;
+    }
+    100% {
+        transform: scaleY(0.9);
+        transform-origin: 100% 0%;
+    }
+}
+
+@keyframes degrade {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes spot {
+    0% {
+        opacity: 1;
+    }
+    20% {
+        opacity: 0.2;
+    }
+    70% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes blur {
+    0% {
+        -webkit-filter: blur(12px) opacity(0%);
+    }
+    100% {
+        -webkit-filter: blur(0.01);
+    }
+}
+@keyframes blur {
+    0% {
+        filter: blur(12px) opacity(0%);
+    }
+    100% {
+        filter: blur(0.01);
+    }
+}
+
+@keyframes vibre {
+    0% {
+        transform: translate(0);
+    }
+    20% {
+        transform: translate(2px, -2px);
+    }
+    40% {
+        transform: translate(2px, 2px);
+    }
+    60% {
+        transform: translate(-2px, 2px);
+    }
+    80% {
+        transform: translate(-2px, -2px);
+    }
+    100% {
+        transform: translate(0);
+    }
+}
+
+
+/*mediaquery landscape*/
+
+@media screen and (max-height: 600px){
+    #piano {
+        height: 10rem;
+        padding: 2rem 1.2rem 0 1.2rem;
+    }
+
+    .blanche {
+        width: 2.3rem;
+        height: 9.2rem;
+    }
+
+    .noire {
+        width: 1.2rem;
+        height: 5.2rem;
+    }
+
+    /*position des touches noires*/
+
+    .noire:nth-child(1){
+        left: 30px;
+    }
+    .noire:nth-child(2){
+        left: 70px;
+    }
+    .noire:nth-child(3){
+        left:145px;
+    }
+    .noire:nth-child(4){
+        left: 185px;
+    }
+    .noire:nth-child(5){
+        left: 225px;
+    }
+    .noire:nth-child(6){
+        left: 302px;
+    }
+    .noire:nth-child(7){
+        left: 340px;
+    }
+    .noire:nth-child(8){
+        left: 415px;
+    }
+    .noire:nth-child(9){
+        left: 457px;
+    }
+    .noire:nth-child(10){
+        left: 496px;
+    }
+
+    #text {
+        display: flex;
+        justify-content: center;
+    }
+
+    #text .message{
+        width: 60vw;
+        height: 150px;
+        background: radial-gradient(45.49% 50.00% at 50.00% 50%, #070707 0%, rgba(11, 10, 10, 0.00) 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: -8rem;
+        margin-top: -1rem;
+    }
+
+    #text .message p {
+        color: #fff;
+        max-width: 60%;
+        font-size: 1.2rem;
+        font-weight: 200;
+        font-style: italic;
+    }
+    .camille {
+        width: 14rem;
+        height: auto;
+        position: absolute;
+        top: -150px;
+        left: -50px;
+    }
+
+
+    .se-tait, .chante {
+        z-index: 0;
+    }
+
+    .spot {
+       width: 70px;
+        opacity: 0.5;
+    }
+
+     .halo, #text h1 {
+        display: none;
+    }
+
+    #notes {
+        width: 100vw;
+        height: 75vh;
+        top: 0;
+        left: 0;
+        z-index: 0;
+    }
+
+    #notes img{
+        width: 20px;
+        height: 20px;
+    }
+
+    #notes img:nth-child(5){
+        top: 8vh;
+        left:55vw;
+    }
+}
+
+/*mediaquery portrait*/
+
+@media screen and (max-width: 600px){
+    #piano {
+        height: 10rem;
+        padding: 2rem 1.2rem 0 1.2rem;
+    }
+
+    .blanche {
+        width: 2.3rem;
+        height: 9.2rem;
+    }
+
+    .noire {
+        width: 1.2rem;
+        height: 5.2rem;
+    }
+
+    .blanche:nth-last-child(-n+8){
+        display: none;
+    }
+    .noire:nth-last-child(-n+6){
+        display: none;
+    }
+
+    /*position des touches noires*/
+
+    .noire:nth-child(1){
+        left: 30px;
+    }
+    .noire:nth-child(2){
+        left: 70px;
+    }
+    .noire:nth-child(3){
+        left:145px;
+    }
+    .noire:nth-child(4){
+        left: 185px;
+    }
+
+    #text {
+        display: flex;
+        justify-content: center;
+    }
+
+    #text .message{
+        width: 60vw;
+        height: 300px;
+        background: radial-gradient(45.49% 50.00% at 50.00% 50%, #070707 0%, rgba(11, 10, 10, 0.00) 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: -8rem;
+        margin-top: -5rem;
+    }
+
+    #text .message p {
+        color: #fff;
+        max-width: 60%;
+        font-size: 1.2rem;
+        font-weight: 200;
+        font-style: italic;
+    }
+    .camille {
+        width: 12rem;
+        height: auto;
+        position: absolute;
+        top: -170px;
+        left: -30px;
+    }
+
+
+    .se-tait, .chante {
+        z-index: 0;
+    }
+
+    .spot {
+        width: 70px;
+        height: 85vh;
+        opacity: 0.5;
+    }
+
+    .halo {
+        width: 5rem;
+        height: 12px;
+        top: 7px
+    }
+
+    #text .titre {
+        position: absolute;
+        top: -68vh;
+        left: 0;
+        max-width: 80%;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+
+    }
+
+    #notes {
+        width: 100vw;
+        height: 75vh;
+        top: 15vh;
+        left: 0;
+    }
+
+    #notes img{
+        width: 20px;
+        height: 20px;
+    }
+
+    #notes img:nth-child(5){
+        top: 8vh;
+        left:55vw;
+    }
+}
